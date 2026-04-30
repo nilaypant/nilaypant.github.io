@@ -70,7 +70,7 @@ export default function Overview({ onTabChange }) {
         <div className="grid grid--areas">
           <button className="area-card" type="button" onClick={() => onTabChange('work')}>
             <span>Work</span>
-            <strong>Professional analytics, product systems, and reusable work practices.</strong>
+            <strong>Professional learnings, product systems, and reusable work practices.</strong>
           </button>
           <button className="area-card" type="button" onClick={() => onTabChange('study')}>
             <span>Study</span>
@@ -78,7 +78,7 @@ export default function Overview({ onTabChange }) {
           </button>
           <button className="area-card" type="button" onClick={() => onTabChange('play')}>
             <span>Play</span>
-            <strong>Photography, films, browser games, and creative experiments.</strong>
+            <strong>Browser games, creative experiments, photography, films and more.</strong>
           </button>
         </div>
       </Section>
