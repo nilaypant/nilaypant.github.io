@@ -40,9 +40,17 @@ export default function Overview({ onTabChange }) {
 
       <section className="stat-grid" aria-label="Selected impact metrics">
         {impactStats.map((stat) => (
-          <div className="stat" key={stat.label}>
+          <div className="stat" key={Array.isArray(stat.label) ? stat.label.join('-') : stat.label}>
             <strong>{stat.value}</strong>
-            <span>{stat.label}</span>
+            {Array.isArray(stat.label) ? (
+              <span className="stat__label stat__label--stacked">
+                {stat.label.map((line) => (
+                  <span key={line}>{line}</span>
+                ))}
+              </span>
+            ) : (
+              <span className="stat__label">{stat.label}</span>
+            )}
           </div>
         ))}
       </section>

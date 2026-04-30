@@ -237,10 +237,14 @@ a:hover {
   line-height: 1;
 }
 
-.stat span {
+.stat__label {
   display: block;
   margin-top: 10px;
   color: var(--muted);
+}
+
+.stat__label--stacked span {
+  display: block;
 }
 
 .section {
