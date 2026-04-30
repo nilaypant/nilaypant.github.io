@@ -25,8 +25,8 @@ export const impactStats = [
     value: '2',
     label: [
       'Industries',
-      'Curr: Product Analytics @ Adobe',
-      'Ex: Healthcare Data Science @ Innovaccer',
+      'Product DS @ Adobe',
+      'Healthcare DS @ Innovaccer (Ex)',
     ],
   },
   { value: '98.6', label: 'CAT 2020 Percentile Score' },
