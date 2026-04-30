@@ -367,6 +367,43 @@ a:hover {
     rgba(255, 255, 255, 0.03);
 }
 
+.feature-video-card,
+.overview-video-card {
+  display: grid;
+  gap: 28px;
+  align-items: center;
+}
+
+.feature-video-card {
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  margin-bottom: 18px;
+}
+
+.overview-video-card {
+  grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr);
+}
+
+.video-embed {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(139, 233, 214, 0.22);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.04);
+  aspect-ratio: 16 / 9;
+}
+
+.video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-embed--compact {
+  min-height: 220px;
+}
+
 .site-footer {
   padding: 48px 0 34px;
   color: var(--muted);
@@ -391,7 +428,9 @@ a:hover {
   .grid--cards,
   .grid--skills,
   .grid--areas,
-  .stat-grid {
+  .stat-grid,
+  .feature-video-card,
+  .overview-video-card {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -418,7 +457,9 @@ a:hover {
   .grid--cards,
   .grid--skills,
   .grid--areas,
-  .stat-grid {
+  .stat-grid,
+  .feature-video-card,
+  .overview-video-card {
     grid-template-columns: 1fr;
   }
 

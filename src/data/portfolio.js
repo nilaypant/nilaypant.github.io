@@ -202,6 +202,17 @@ export const education = {
   period: "Aug '17 - Jul '21",
 };
 
+export const featuredCreativeWork = {
+  title: 'Rendezvous B-Roll Music Video',
+  eyebrow: 'Runner-up / IIT Delhi Rendezvous',
+  description:
+    "A music video I directed with my filmmaking society team for a B-roll competition at IIT Delhi's annual Rendezvous Cultural Festival.",
+  context:
+    'Part student-film sprint, part visual storytelling exercise, and one of the early places where filmmaking became a serious creative outlet for me.',
+  youtubeUrl: 'https://www.youtube.com/watch?v=FxUNDkVe1qg',
+  embedUrl: 'https://www.youtube.com/embed/FxUNDkVe1qg',
+};
+
 export const playItems = [
   {
     title: 'Photography Gallery',
