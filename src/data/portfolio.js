@@ -21,27 +21,53 @@ export const tabs = [
 
 export const impactStats = [
   { value: '5+', label: 'Years in data and analytics' },
-  { value: '30%', label: 'Decision-time reduction through BI products' },
-  { value: '50%', label: 'Data processing efficiency improvement' },
-  { value: '80%', label: 'SCRUM process efficiency gain via internal tooling' },
+  { value: '2', label: 'Industries, Adobe : Product Analytics, Innovaccer : Healthcare Data Science' },
+  { value: '98.6', label: 'CAT 2020 Percentile Score' },
+  { value: '28', label: 'Completed revolutions around the Sun' },
 ];
 
 export const skills = [
   {
-    group: 'Data and BI',
-    items: ['Power BI', 'Business Intelligence', 'Data Modeling', 'Product Analytics', 'Advanced MS-Suite'],
+    group: 'Data',
+    items: ['Engineering',
+           'Architecture',
+           'Business Intelligence',
+           'Product Analytics',
+           'Advanced MS-Suite',  
+           'Power BI'
+          ],
+  },
+  {
+    group: 'ML/AI',
+    items: ['Time-Series Forecasting',
+            'SARIMA',
+            'Prophet',
+            'PCA',
+            'ICA',
+            'Support Vector Classification'
+          ],
   },
   {
     group: 'Engineering',
-    items: ['Python', 'PySpark', 'SQL', 'KustoQL', 'Django', 'Git'],
+    items: ['Python',
+            'PySpark',
+            'Django',
+            'Javascript/React',
+            'SQL',
+            'KustoQL',
+            'Git',
+            'Generative AI'
+          ],
   },
   {
     group: 'Platforms',
-    items: ['Azure Databricks', 'Azure Synapse Analytics', 'Splunk', 'Amplitude', 'AVO', 'JIRA'],
-  },
-  {
-    group: 'Machine Learning',
-    items: ['Time-Series Forecasting', 'SARIMA', 'Prophet', 'PCA', 'ICA', 'Support Vector Classification'],
+    items: ['Azure Databricks',
+            'Snowflake',
+            'Splunk',
+            'Amplitude',
+            'AVO',
+            'JIRA'
+          ],
   },
 ];
 
