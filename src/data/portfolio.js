@@ -7,9 +7,9 @@ export const profile = {
   portfolioUrl: 'https://nilaypant.github.io/',
   linkedInUrl: 'https://www.linkedin.com/in/nilay-pant',
   resumeSummary:
-    'Data professional with 5+ years of experience across business analytics, data modeling, business intelligence, and Microsoft-centered analytics stacks.',
+    'Data professional with 5+ years of experience across machine learning, data engineering, artificial intelligence and their applications in analytics solutions across various domains.',
   positioning:
-    'I build scalable analytics products, data pipelines, Power BI solutions, and ML-backed decision systems for large organizations.',
+    'Data engineering, machine learning, applied AI, desicion systems and creative systems by ',
 };
 
 export const tabs = [
