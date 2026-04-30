@@ -9,7 +9,7 @@ export const profile = {
   resumeSummary:
     'Data professional with 5+ years of experience across machine learning, data engineering, artificial intelligence and their applications in analytics solutions across various domains.',
   positioning:
-    'Data engineering, machine learning, applied AI, desicion systems and creative systems by ',
+    'Data engineering, machine learning, applied AI, desicion systems and creative systems',
 };
 
 export const tabs = [

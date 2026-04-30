@@ -10,8 +10,13 @@ export default function Overview({ onTabChange }) {
       <section className="hero">
         <div className="hero__content">
           <span className="eyebrow">Portfolio in progress</span>
-          <h1>Just a guy, \n In the age of AI \n Building and saying \n "I try..."</h1>
-          <p>{profile.positioning}&nbsp;{profile.name}</p>
+          <h2>
+            Just a guy in the age of AI,<br />
+            building tools, chasing signals<br />
+            and when the future asks why,<br />
+            I say, "I try..."
+          </h2>
+          <p>{profile.positioning}&nbsp;by {profile.name}</p>
           <div className="hero__actions">
             <a className="button button--primary" href={`mailto:${profile.email}`}>
               Contact me
