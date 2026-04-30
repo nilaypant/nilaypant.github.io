@@ -21,7 +21,7 @@ export const tabs = [
 
 export const impactStats = [
   { value: '5+', label: 'Years in data and analytics' },
-  { value: '2', label: 'Industries, Adobe : Product Analytics, Innovaccer : Healthcare Data Science' },
+  { value: '2', label: 'Industries; \n Adobe : Product Analytics, Innovaccer : Healthcare Data Science' },
   { value: '98.6', label: 'CAT 2020 Percentile Score' },
   { value: '28', label: 'Completed revolutions around the Sun' },
 ];
