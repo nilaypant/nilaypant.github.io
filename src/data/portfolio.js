@@ -52,7 +52,7 @@ export const skills = [
     items: ['Python',
             'PySpark',
             'Django',
-            'Javascript/React',
+            'Javascript-React',
             'SQL',
             'KustoQL',
             'Git',
