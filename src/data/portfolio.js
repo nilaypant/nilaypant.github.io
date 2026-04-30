@@ -213,6 +213,20 @@ export const featuredCreativeWork = {
   embedUrl: 'https://www.youtube.com/embed/FxUNDkVe1qg',
 };
 
+export const playFilmWorks = [
+  featuredCreativeWork,
+  {
+    title: 'A Tale of Passion',
+    eyebrow: 'India Film Project / 50-hour filmmaking challenge',
+    description:
+      'A group of passionate filmmakers comes together to make a film under 50 hours for a competition. Will they be able to work together, or will their passion become the obstacle?',
+    context:
+      "A version of this film was submitted to the India Film Project 50-hour filmmaking challenge. The given theme was 'A Tale of Passion'; this is a re-edit of that film. I contributed as cast, cinematographer/DOP, assistant director, and part of the writing team.",
+    youtubeUrl: 'https://www.youtube.com/watch?v=jzz1xMU5YCs',
+    embedUrl: 'https://www.youtube.com/embed/jzz1xMU5YCs',
+  },
+];
+
 export const playItems = [
   {
     title: 'Photography Gallery',

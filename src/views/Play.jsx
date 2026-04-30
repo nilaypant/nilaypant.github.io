@@ -1,31 +1,38 @@
 import Section from '../components/Section.jsx';
-import { featuredCreativeWork, playItems } from '../data/portfolio.js';
+import { playFilmWorks, playItems } from '../data/portfolio.js';
 
 export default function Play() {
   return (
     <>
-      <Section eyebrow="Creative" title="Photography, Film, and Experiments">
-        <article className="card feature-video-card">
-          <div className="video-embed" aria-label={`${featuredCreativeWork.title} video`}>
-            <iframe
-              src={featuredCreativeWork.embedUrl}
-              title={featuredCreativeWork.title}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            />
-          </div>
-          <div>
-            <span className="eyebrow">{featuredCreativeWork.eyebrow}</span>
-            <h3>{featuredCreativeWork.title}</h3>
-            <p>{featuredCreativeWork.description}</p>
-            <p>{featuredCreativeWork.context}</p>
-            <div className="link-row">
-              <a href={featuredCreativeWork.youtubeUrl} target="_blank" rel="noreferrer">
-                Watch on YouTube
-              </a>
-            </div>
-          </div>
-        </article>
+      <Section eyebrow="Creative" title="Films, Photography, and Experiments">
+        <div className="film-showcase">
+          {playFilmWorks.map((film, index) => (
+            <article
+              className={`card feature-video-card ${index % 2 ? 'feature-video-card--reverse' : ''}`}
+              key={film.title}
+            >
+              <div className="video-embed" aria-label={`${film.title} video`}>
+                <iframe
+                  src={film.embedUrl}
+                  title={film.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+              <div>
+                <span className="eyebrow">{film.eyebrow}</span>
+                <h3>{film.title}</h3>
+                <p>{film.description}</p>
+                <p>{film.context}</p>
+                <div className="link-row">
+                  <a href={film.youtubeUrl} target="_blank" rel="noreferrer">
+                    Watch on YouTube
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
 
         <div className="grid grid--cards">
           {playItems.map((item) => (
@@ -39,6 +46,7 @@ export default function Play() {
         </div>
       </Section>
 
+      {/*
       <Section eyebrow="Later" title="How This Section Can Grow">
         <div className="card">
           <p>
@@ -48,6 +56,7 @@ export default function Play() {
           </p>
         </div>
       </Section>
+      */}
     </>
   );
 }
