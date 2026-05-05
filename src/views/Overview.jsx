@@ -33,6 +33,9 @@ export default function Overview({ onTabChange }) {
             <a href={profile.linkedInUrl} target="_blank" rel="noreferrer">
               linkedin.com/in/nilay-pant
             </a>
+            <a href={profile.githubUrl} target="_blank" rel="noreferrer">
+              github.com/nilaypant
+            </a>
             <span>{profile.location}</span>
           </div>
         </aside>

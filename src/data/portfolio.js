@@ -6,6 +6,7 @@ export const profile = {
   phone: '+91-9690323069',
   portfolioUrl: 'https://nilaypant.github.io/',
   linkedInUrl: 'https://www.linkedin.com/in/nilay-pant',
+  githubUrl: 'https://github.com/nilaypant',
   resumeSummary:
     'Data professional with 5+ years of experience across machine learning, data engineering, artificial intelligence and their applications in analytics solutions across various domains.',
   positioning:
