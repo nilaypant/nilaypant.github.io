@@ -653,6 +653,7 @@ a:hover {
     radial-gradient(circle at 50% 50%, rgba(244, 213, 141, 0.12), transparent 17rem),
     rgba(255, 255, 255, 0.025);
   box-shadow: var(--shadow);
+  perspective: 1200px;
 }
 
 .signal-orb__hud {
@@ -680,6 +681,7 @@ a:hover {
 .signal-orb__field {
   position: absolute;
   inset: 0;
+  transform-style: preserve-3d;
 }
 
 .signal-orb__planet {
@@ -693,12 +695,89 @@ a:hover {
   border-radius: 50%;
   background:
     radial-gradient(circle at 38% 34%, rgba(255, 255, 255, 0.62), transparent 0.45rem),
+    radial-gradient(circle at calc(var(--orb-x) * 0.8) calc(var(--orb-y) * 0.8), rgba(255, 255, 255, 0.26), transparent 9rem),
     radial-gradient(circle at 48% 52%, rgba(139, 233, 214, 0.96), rgba(85, 214, 190, 0.18) 42%, rgba(2, 4, 7, 0.38) 68%),
     repeating-radial-gradient(circle, rgba(139, 233, 214, 0.12) 0 1px, transparent 1px 7px);
   box-shadow:
     0 0 64px rgba(139, 233, 214, 0.22),
+    0 22px 80px rgba(0, 0, 0, 0.62),
     inset -30px -34px 80px rgba(0, 0, 0, 0.55);
-  transform: translate(-50%, -50%);
+  transform:
+    translate(-50%, -50%)
+    rotateX(var(--orb-tilt-x))
+    rotateY(var(--orb-tilt-y));
+  transform-style: preserve-3d;
+  transition: transform 140ms ease-out;
+}
+
+.signal-orb__planet::before,
+.signal-orb__planet::after {
+  position: absolute;
+  inset: 7%;
+  border-radius: inherit;
+  pointer-events: none;
+  content: '';
+}
+
+.signal-orb__planet::before {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.34), transparent 26%),
+    radial-gradient(circle at 70% 74%, rgba(0, 0, 0, 0.44), transparent 38%);
+  transform: translateZ(34px);
+}
+
+.signal-orb__planet::after {
+  inset: -9%;
+  border: 1px solid rgba(139, 233, 214, 0.18);
+  box-shadow:
+    0 0 44px rgba(139, 233, 214, 0.18),
+    inset 0 0 32px rgba(139, 233, 214, 0.08);
+  transform: translateZ(-44px);
+}
+
+.signal-orb__core,
+.signal-orb__latitude,
+.signal-orb__longitude {
+  position: absolute;
+  inset: 13%;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.signal-orb__core {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(244, 213, 141, 0.32), transparent 0.8rem),
+    radial-gradient(circle at 50% 50%, rgba(139, 233, 214, 0.16), transparent 42%);
+  transform: translateZ(58px) scale(0.64);
+}
+
+.signal-orb__latitude {
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
+  border-bottom: 1px solid rgba(139, 233, 214, 0.24);
+}
+
+.signal-orb__latitude--one {
+  transform: translateZ(46px) rotateX(68deg);
+}
+
+.signal-orb__latitude--two {
+  transform: translateZ(28px) rotateX(105deg) scale(0.82);
+  opacity: 0.72;
+}
+
+.signal-orb__longitude {
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(139, 233, 214, 0.2);
+}
+
+.signal-orb__longitude--one {
+  transform: translateZ(42px) rotateY(58deg);
+}
+
+.signal-orb__longitude--two {
+  transform: translateZ(38px) rotateY(-42deg);
+  opacity: 0.72;
 }
 
 .signal-orb__ring {
@@ -707,7 +786,12 @@ a:hover {
   left: 50%;
   border: 1px solid rgba(255, 255, 255, 0.36);
   border-radius: 50%;
-  transform: translate(-50%, -50%) rotate(-15deg);
+  transform:
+    translate(-50%, -50%)
+    rotateX(68deg)
+    rotateZ(-15deg)
+    translateZ(-18px);
+  transform-style: preserve-3d;
 }
 
 .signal-orb__ring--outer {
