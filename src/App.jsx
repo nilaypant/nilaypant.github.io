@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import * as amplitude from '@amplitude/unified';
 import SiteHeader from './components/SiteHeader.jsx';
 import Overview from './views/Overview.jsx';
 import Work from './views/Work.jsx';
@@ -23,6 +24,7 @@ export default function App() {
   const ActiveView = views[activeTab] ?? Overview;
 
   const handleTabChange = (tabId) => {
+    amplitude.track('Tab Navigated', { tab: tabId, previous_tab: activeTab });
     setActiveTab(tabId);
     window.history.replaceState(null, '', `#${tabId}`);
     window.scrollTo({ top: 0, behavior: 'smooth' });

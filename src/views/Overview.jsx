@@ -1,3 +1,4 @@
+import * as amplitude from '@amplitude/unified';
 import Section from '../components/Section.jsx';
 import ProjectCard from '../components/ProjectCard.jsx';
 import SignalOrb from '../components/SignalOrb.jsx';
@@ -11,16 +12,16 @@ export default function Overview({ onTabChange }) {
       <section className="hero">
         <div className="hero__masthead" aria-label="Portfolio summary">
           <div className="contact-group">
-            <a href={`mailto:${profile.email}`}>{profile.email}</a>
-            <a href={`tel:${profile.phone}`}>{profile.phone}</a>
+            <a href={`mailto:${profile.email}`} onClick={() => amplitude.track('Contact Email Clicked', { location: 'hero' })}>{profile.email}</a>
+            <a href={`tel:${profile.phone}`} onClick={() => amplitude.track('Contact Initiated', { location: 'hero' })}>{profile.phone}</a>
             <span>{profile.location}</span>
           </div>
           <p>{profile.resumeSummary}</p>
           <div className="contact-group contact-group--links">
-            <a href={profile.linkedInUrl} target="_blank" rel="noreferrer">
+            <a href={profile.linkedInUrl} target="_blank" rel="noreferrer" onClick={() => amplitude.track('External Link Clicked', { link_label: 'LinkedIn', destination: profile.linkedInUrl })}>
               LinkedIn
             </a>
-            <a href={profile.githubUrl} target="_blank" rel="noreferrer">
+            <a href={profile.githubUrl} target="_blank" rel="noreferrer" onClick={() => amplitude.track('External Link Clicked', { link_label: 'GitHub', destination: profile.githubUrl })}>
               GitHub
             </a>
           </div>
@@ -97,15 +98,15 @@ export default function Overview({ onTabChange }) {
 
       <Section eyebrow="Explore" title="Portfolio Areas">
         <div className="grid grid--areas">
-          <button className="area-card" type="button" onClick={() => onTabChange('work')}>
+          <button className="area-card" type="button" onClick={() => { amplitude.track('Portfolio Area Entered', { area: 'work' }); onTabChange('work'); }}>
             <span>Work</span>
             <strong>Professional learnings, product systems, and reusable work practices.</strong>
           </button>
-          <button className="area-card" type="button" onClick={() => onTabChange('study')}>
+          <button className="area-card" type="button" onClick={() => { amplitude.track('Portfolio Area Entered', { area: 'study' }); onTabChange('study'); }}>
             <span>Study</span>
             <strong>Academic ML, research projects, and technical learning artifacts.</strong>
           </button>
-          <button className="area-card" type="button" onClick={() => onTabChange('play')}>
+          <button className="area-card" type="button" onClick={() => { amplitude.track('Portfolio Area Entered', { area: 'play' }); onTabChange('play'); }}>
             <span>Play</span>
             <strong>Browser games, creative experiments, photography, films and more.</strong>
           </button>
@@ -120,10 +121,10 @@ export default function Overview({ onTabChange }) {
             <p>{featuredCreativeWork.description}</p>
             <p>{featuredCreativeWork.context}</p>
             <div className="hero__actions">
-              <button className="button button--primary" type="button" onClick={() => onTabChange('play')}>
+              <button className="button button--primary" type="button" onClick={() => { amplitude.track('Featured Film CTA Clicked', { cta: 'See it in Play', film_title: featuredCreativeWork.title }); onTabChange('play'); }}>
                 See it in Play
               </button>
-              <a className="button" href={featuredCreativeWork.youtubeUrl} target="_blank" rel="noreferrer">
+              <a className="button" href={featuredCreativeWork.youtubeUrl} target="_blank" rel="noreferrer" onClick={() => amplitude.track('Featured Film CTA Clicked', { cta: 'Watch on YouTube', film_title: featuredCreativeWork.title })}>
                 Watch on YouTube
               </a>
             </div>

@@ -1,0 +1,45 @@
+name: Update Orb Engagement
+
+on:
+  schedule:
+    - cron: '15 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    if: ${{ secrets.AMPLITUDE_DASHBOARD_API_KEY != '' && secrets.AMPLITUDE_DASHBOARD_SECRET_KEY != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build orb engagement snapshot
+        env:
+          AMPLITUDE_DASHBOARD_API_KEY: ${{ secrets.AMPLITUDE_DASHBOARD_API_KEY }}
+          AMPLITUDE_DASHBOARD_SECRET_KEY: ${{ secrets.AMPLITUDE_DASHBOARD_SECRET_KEY }}
+          AMPLITUDE_PROJECT_ID: ${{ secrets.AMPLITUDE_PROJECT_ID }}
+          AMPLITUDE_REGION: ${{ secrets.AMPLITUDE_REGION }}
+          AMPLITUDE_LOOKBACK_DAYS: ${{ secrets.AMPLITUDE_LOOKBACK_DAYS }}
+        run: npm run update:orb-engagement
+
+      - name: Commit updated snapshot
+        run: |
+          if git diff --quiet -- public/orb-engagement.json; then
+            echo "No orb engagement changes to commit."
+            exit 0
+          fi
+          git add public/orb-engagement.json
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m "Update orb engagement snapshot"
+          git push

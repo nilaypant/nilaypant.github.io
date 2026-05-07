@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import * as amplitude from '@amplitude/unified';
 
 const signals = [
   { id: 'work', label: 'Work', detail: 'Product analytics / data systems' },
@@ -8,6 +9,8 @@ const signals = [
 
 export default function SignalOrb({ onTabChange }) {
   const [pointer, setPointer] = useState({ x: 50, y: 45 });
+  const [activeNode, setActiveNode] = useState(null);
+  const [engagement, setEngagement] = useState(null);
 
   const handlePointerMove = (event) => {
     const rect = event.currentTarget.getBoundingClientRect();
@@ -19,11 +22,46 @@ export default function SignalOrb({ onTabChange }) {
 
   const tiltX = ((pointer.y - 50) / 50) * -12;
   const tiltY = ((pointer.x - 50) / 50) * 16;
+  const tooltipX = Math.min(94, Math.max(8, pointer.x));
+  const tooltipY = Math.min(90, Math.max(12, pointer.y));
+
+  useEffect(() => {
+    let isMounted = true;
+    fetch('/orb-engagement.json', { cache: 'no-store' })
+      .then((response) => (response.ok ? response.json() : null))
+      .then((payload) => {
+        if (!isMounted || !payload) {
+          return;
+        }
+        setEngagement(payload);
+      })
+      .catch(() => {
+        if (isMounted) {
+          setEngagement(null);
+        }
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const activeNodeInfo = useMemo(
+    () => signals.find((signal) => signal.id === activeNode) ?? null,
+    [activeNode],
+  );
+
+  const globalShare =
+    activeNode && engagement?.totals && Number.isFinite(engagement.totals[activeNode])
+      ? engagement.totals[activeNode]
+      : null;
+  const interactionSample = Number(engagement?.sample_size_interactions ?? 0);
 
   return (
     <div
       className="signal-orb"
       onPointerMove={handlePointerMove}
+      onPointerLeave={() => setActiveNode(null)}
       style={{
         '--orb-x': `${pointer.x}%`,
         '--orb-y': `${pointer.y}%`,
@@ -55,7 +93,10 @@ export default function SignalOrb({ onTabChange }) {
           <button
             className={`signal-node signal-node--${index + 1}`}
             key={signal.id}
-            onClick={() => onTabChange(signal.id)}
+            onClick={() => { amplitude.track('Signal Orb Node Clicked', { node: signal.id, node_label: signal.label }); onTabChange(signal.id); }}
+            onMouseEnter={() => setActiveNode(signal.id)}
+            onFocus={() => setActiveNode(signal.id)}
+            onBlur={() => setActiveNode(null)}
             type="button"
           >
             <span>{signal.label}</span>
@@ -63,6 +104,23 @@ export default function SignalOrb({ onTabChange }) {
           </button>
         ))}
       </div>
+
+      {activeNodeInfo ? (
+        <div
+          className="signal-orb__tooltip"
+          style={{
+            '--tooltip-x': `${tooltipX}%`,
+            '--tooltip-y': `${tooltipY}%`,
+          }}
+        >
+          <strong>{activeNodeInfo.label} Signal</strong>
+          {globalShare !== null && interactionSample > 0 ? (
+            <p>{globalShare}% of viewers explored {activeNodeInfo.label} in the last {engagement.window_days ?? 30} days.</p>
+          ) : (
+            <p>Global interest stats are warming up for this zone.</p>
+          )}
+        </div>
+      ) : null}
     </div>
   );
 }

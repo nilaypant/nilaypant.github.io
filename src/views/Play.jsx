@@ -1,3 +1,4 @@
+import * as amplitude from '@amplitude/unified';
 import Section from '../components/Section.jsx';
 import { playFilmWorks, playItems } from '../data/portfolio.js';
 
@@ -29,7 +30,7 @@ export default function Play() {
                 <p>{film.description}</p>
                 <p>{film.context}</p>
                 <div className="link-row">
-                  <a href={film.youtubeUrl} target="_blank" rel="noreferrer">
+                  <a href={film.youtubeUrl} target="_blank" rel="noreferrer" onClick={() => amplitude.track('Film Watched On YouTube', { film_title: film.title })}>
                     Watch on YouTube
                   </a>
                 </div>

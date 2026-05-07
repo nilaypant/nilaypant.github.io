@@ -1,3 +1,4 @@
+import * as amplitude from '@amplitude/unified';
 import TagList from './TagList.jsx';
 
 export default function ProjectCard({ project }) {
@@ -20,7 +21,7 @@ export default function ProjectCard({ project }) {
         {project.links?.length ? (
           <div className="link-row">
             {project.links.map((link) => (
-              <a href={link.href} key={link.href} target="_blank" rel="noreferrer">
+              <a href={link.href} key={link.href} target="_blank" rel="noreferrer" onClick={() => amplitude.track('Project Link Clicked', { project_title: project.title, link_label: link.label, destination: link.href })}>
                 {link.label}
               </a>
             ))}

@@ -31,6 +31,8 @@ jobs:
         run: npm ci
 
       - name: Build
+        env:
+          VITE_AMPLITUDE_API_KEY: ${{ secrets.AMPLITUDE_INGEST_API_KEY }}
         run: npm run build
 
       - name: Upload artifact
