@@ -3,7 +3,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const zones = ['work', 'study', 'play'];
-const lookbackDays = Number(process.env.AMPLITUDE_LOOKBACK_DAYS ?? '30');
+const parsedLookbackDays = Number.parseInt(process.env.AMPLITUDE_LOOKBACK_DAYS ?? '', 10);
+const lookbackDays = Number.isFinite(parsedLookbackDays) && parsedLookbackDays > 0 ? parsedLookbackDays : 30;
 const eventType = process.env.AMPLITUDE_ORB_EVENT_NAME ?? 'Signal Orb Node Clicked';
 const dashboardApiKey = process.env.AMPLITUDE_DASHBOARD_API_KEY;
 const dashboardSecretKey = process.env.AMPLITUDE_DASHBOARD_SECRET_KEY;
