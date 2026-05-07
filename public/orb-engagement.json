@@ -1,19 +1,19 @@
 {
   "window_days": 30,
-  "updated_at": null,
-  "amplitude_project_id": null,
+  "updated_at": "2026-05-07T15:42:16.101Z",
+  "amplitude_project_id": "813517",
   "region": "US",
   "definition": "Unique interactions on Signal Orb nodes over the selected lookback window.",
   "source_event": "Signal Orb Node Clicked",
   "totals": {
     "work": 0,
-    "study": 0,
+    "study": 100,
     "play": 0
   },
-  "sample_size_interactions": 0,
+  "sample_size_interactions": 1,
   "raw_counts": {
     "work": 0,
-    "study": 0,
+    "study": 1,
     "play": 0
   }
 }
