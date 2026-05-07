@@ -5,6 +5,10 @@ export default function Play() {
   return (
     <>
       <Section eyebrow="Creative" title="Films, Photography, and Experiments">
+        <p className="section__lede">
+          A small screening room for films I directed, shot, wrote for, acted in, or helped make
+          under impossible timelines.
+        </p>
         <div className="film-showcase">
           {playFilmWorks.map((film, index) => (
             <article

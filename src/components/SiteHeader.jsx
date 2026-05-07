@@ -12,13 +12,14 @@ export default function SiteHeader({ activeTab, onTabChange }) {
       </a>
 
       <nav className="tabs" aria-label="Portfolio sections">
-        {tabs.map((tab) => (
+        {tabs.map((tab, index) => (
           <button
             className={activeTab === tab.id ? 'tab tab--active' : 'tab'}
             key={tab.id}
             onClick={() => onTabChange(tab.id)}
             type="button"
           >
+            <span>{String(index + 1).padStart(2, '0')}</span>
             {tab.label}
           </button>
         ))}

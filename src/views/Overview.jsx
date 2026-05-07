@@ -1,5 +1,6 @@
 import Section from '../components/Section.jsx';
 import ProjectCard from '../components/ProjectCard.jsx';
+import SignalOrb from '../components/SignalOrb.jsx';
 import { featuredCreativeWork, impactStats, profile, projects, skills } from '../data/portfolio.js';
 
 export default function Overview({ onTabChange }) {
@@ -9,13 +10,13 @@ export default function Overview({ onTabChange }) {
     <>
       <section className="hero">
         <div className="hero__content">
-          <span className="eyebrow">Portfolio in progress</span>
-          <h2>
+          <span className="eyebrow">Portfolio No. 001 / Signal Lab</span>
+          <h1>
             Just a guy in the age of AI,<br />
             building tools, chasing signals<br />
             and when the future asks why,<br />
             I say, "I try..."
-          </h2>
+          </h1>
           <p>{profile.positioning}&nbsp;by {profile.name}</p>
           <div className="hero__actions">
             <a className="button button--primary" href={`mailto:${profile.email}`}>
@@ -27,6 +28,7 @@ export default function Overview({ onTabChange }) {
           </div>
         </div>
         <aside className="hero__panel" aria-label="Profile summary">
+          <span className="eyebrow">Intercepted transmission</span>
           <p>{profile.resumeSummary}</p>
           <div className="contact-stack">
             <a href={`mailto:${profile.email}`}>{profile.email}</a>
@@ -39,6 +41,7 @@ export default function Overview({ onTabChange }) {
             <span>{profile.location}</span>
           </div>
         </aside>
+        <SignalOrb onTabChange={onTabChange} />
       </section>
 
       <section className="stat-grid" aria-label="Selected impact metrics">
@@ -67,6 +70,27 @@ export default function Overview({ onTabChange }) {
           {featuredProjects.map((project) => (
             <ProjectCard project={project} key={project.title} />
           ))}
+        </div>
+      </Section>
+
+      <Section eyebrow="Artifacts" title="Working Materials">
+        <div className="artifact-grid">
+          <article className="artifact-card">
+            <span>01 / Systems</span>
+            <h3>From data products to decision systems</h3>
+            <p>
+              This portfolio is being shaped as a living console for analytics work, ML research,
+              project writeups, reusable templates, and creative experiments.
+            </p>
+          </article>
+          <article className="artifact-card">
+            <span>02 / Lab Notes</span>
+            <h3>Reusable work artifacts</h3>
+            <p>
+              Future drops can include bookmark structures, dashboard checklists, project SOPs, and
+              small browser-native demos that make the work inspectable.
+            </p>
+          </article>
         </div>
       </Section>
 
