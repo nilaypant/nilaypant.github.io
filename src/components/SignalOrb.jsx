@@ -91,10 +91,11 @@ export default function SignalOrb({ onTabChange }) {
       <div className="signal-orb__nodes" aria-label="Portfolio navigation">
         {signals.map((signal, index) => (
           <button
-            className={`signal-node signal-node--${index + 1}`}
+            className={`signal-node signal-node--${index + 1} ${activeNode === signal.id ? 'signal-node--active' : ''}`}
             key={signal.id}
             onClick={() => { amplitude.track('Signal Orb Node Clicked', { node: signal.id, node_label: signal.label }); onTabChange(signal.id); }}
             onMouseEnter={() => setActiveNode(signal.id)}
+            onMouseLeave={() => setActiveNode(null)}
             onFocus={() => setActiveNode(signal.id)}
             onBlur={() => setActiveNode(null)}
             type="button"

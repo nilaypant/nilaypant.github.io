@@ -884,6 +884,11 @@ a:hover {
   text-align: left;
   backdrop-filter: blur(16px);
   clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
 }
 
 .signal-node span,
@@ -892,7 +897,7 @@ a:hover {
 }
 
 .signal-node span {
-  color: var(--accent);
+  color: var(--accent-strong);
   font-weight: 800;
 }
 
@@ -900,6 +905,27 @@ a:hover {
   margin-top: 5px;
   color: var(--muted);
   line-height: 1.35;
+}
+
+.signal-node:hover,
+.signal-node:focus-visible,
+.signal-node--active {
+  border-color: rgba(122, 45, 69, 0.7);
+  background: rgba(2, 4, 7, 0.66);
+  box-shadow: inset 0 0 0 1px rgba(190, 79, 114, 0.24);
+  transform: translateY(-1px);
+}
+
+.signal-node:hover span,
+.signal-node:focus-visible span,
+.signal-node--active span {
+  color: #be4f72;
+}
+
+.signal-node:hover small,
+.signal-node:focus-visible small,
+.signal-node--active small {
+  color: var(--muted);
 }
 
 .signal-node--1 {
