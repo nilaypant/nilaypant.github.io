@@ -2,17 +2,19 @@
   color-scheme: dark;
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --bg: #030507;
-  --bg-soft: #0a1018;
-  --bg-card: rgba(8, 14, 24, 0.78);
-  --border: rgba(217, 231, 255, 0.14);
-  --text: #f3f6fb;
-  --muted: #8d9ab0;
-  --accent: #8be9d6;
-  --accent-strong: #55d6be;
-  --accent-warm: #f4d58d;
-  --grid-line: rgba(139, 233, 214, 0.08);
+  --bg: #030304;
+  --bg-soft: #0b0d12;
+  --bg-card: rgba(12, 14, 20, 0.82);
+  --border: rgba(211, 218, 230, 0.16);
+  --text: #f2f4f7;
+  --muted: #9099a8;
+  --accent: #8fa3bd;
+  --accent-strong: #c8d2df;
+  --accent-warm: #7a2d45;
+  --wine: #5b1f35;
+  --grid-line: rgba(143, 163, 189, 0.075);
   --shadow: 0 28px 90px rgba(0, 0, 0, 0.54);
+  --panel-cut: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 22px 100%, 0 calc(100% - 22px));
 }
 
 * {
@@ -31,9 +33,9 @@ body {
   background:
     linear-gradient(var(--grid-line) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
-    radial-gradient(circle at 14% 10%, rgba(85, 214, 190, 0.16), transparent 28rem),
-    radial-gradient(circle at 82% 20%, rgba(244, 213, 141, 0.12), transparent 24rem),
-    linear-gradient(135deg, #020304 0%, var(--bg) 45%, #0a111b 100%);
+    radial-gradient(circle at 14% 10%, rgba(60, 83, 112, 0.22), transparent 28rem),
+    radial-gradient(circle at 82% 20%, rgba(91, 31, 53, 0.22), transparent 24rem),
+    linear-gradient(135deg, #020203 0%, var(--bg) 45%, #0a0d13 100%);
   background-size: 56px 56px, 56px 56px, auto, auto, auto;
   overflow-x: hidden;
 }
@@ -67,7 +69,7 @@ a:hover {
 .app-shell {
   width: min(1260px, calc(100% - 32px));
   margin: 0 auto;
-  padding-left: 132px;
+  padding-left: 154px;
 }
 
 .site-header {
@@ -80,13 +82,16 @@ a:hover {
   align-items: flex-start;
   justify-content: space-between;
   flex-direction: column;
-  width: 104px;
+  width: 126px;
   gap: 24px;
   padding: 14px;
   border: 1px solid var(--border);
-  border-radius: 26px;
-  background: rgba(2, 4, 7, 0.72);
+  border-radius: 0;
+  background:
+    linear-gradient(180deg, rgba(143, 163, 189, 0.08), transparent 38%),
+    rgba(2, 3, 5, 0.76);
   backdrop-filter: blur(18px);
+  clip-path: var(--panel-cut);
 }
 
 .brand {
@@ -101,9 +106,10 @@ a:hover {
   height: 44px;
   place-items: center;
   border: 1px solid var(--border);
-  border-radius: 14px;
-  color: #071016;
-  background: linear-gradient(135deg, var(--accent), var(--accent-warm));
+  border-radius: 0;
+  color: #f2f4f7;
+  background: linear-gradient(135deg, #202a38, var(--wine));
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
   font-weight: 800;
 }
 
@@ -148,13 +154,14 @@ a:hover {
   display: grid;
   gap: 4px;
   width: 100%;
-  border-radius: 16px;
-  padding: 10px 8px;
+  border-radius: 0;
+  padding: 10px 12px;
   color: var(--muted);
   text-align: left;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: 0.74rem;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
 }
 
 .tab span {
@@ -166,8 +173,8 @@ a:hover {
 .tab--active,
 .button:hover,
 .area-card:hover {
-  border-color: rgba(139, 233, 214, 0.74);
-  background: rgba(139, 233, 214, 0.12);
+  border-color: rgba(200, 210, 223, 0.58);
+  background: rgba(143, 163, 189, 0.12);
   transform: translateY(-1px);
 }
 
@@ -187,14 +194,17 @@ a:hover {
 .stat,
 .area-card {
   border: 1px solid var(--border);
-  border-radius: 28px;
-  background: var(--bg-card);
+  border-radius: 0;
+  background:
+    linear-gradient(135deg, rgba(143, 163, 189, 0.055), transparent 32%),
+    var(--bg-card);
   box-shadow: var(--shadow);
+  clip-path: var(--panel-cut);
 }
 
 .hero__masthead {
   display: grid;
-  grid-template-columns: minmax(160px, 0.42fr) minmax(0, 1fr) auto;
+  grid-template-columns: minmax(180px, 0.55fr) minmax(0, 1fr) minmax(150px, 0.35fr);
   gap: 22px;
   align-items: center;
   padding: 18px 22px;
@@ -217,7 +227,7 @@ a:hover {
   position: absolute;
   top: 18px;
   right: 22px;
-  color: rgba(139, 233, 214, 0.18);
+  color: rgba(143, 163, 189, 0.16);
   content: 'SIGNAL';
   font-size: clamp(4rem, 12vw, 11rem);
   font-weight: 900;
@@ -226,12 +236,13 @@ a:hover {
 }
 
 .hero__content--byline {
-  max-width: 820px;
-  padding: 26px 0 0;
+  max-width: 980px;
+  padding: 20px 0 0;
   border: 0;
   border-radius: 0;
   background: transparent;
   box-shadow: none;
+  clip-path: none;
 }
 
 .hero__content--byline::after {
@@ -245,14 +256,16 @@ a:hover {
   padding: 32px;
 }
 
-.hero h1 {
+.hero__quote {
   position: relative;
   z-index: 1;
-  max-width: 720px;
-  margin: 0 0 14px;
-  font-size: clamp(1.8rem, 4.4vw, 4.6rem);
-  line-height: 1;
-  letter-spacing: -0.06em;
+  max-width: 860px;
+  margin: 0 0 10px;
+  color: rgba(243, 246, 251, 0.86);
+  font-size: clamp(1.05rem, 1.7vw, 1.55rem);
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
 }
 
 .hero p,
@@ -263,11 +276,14 @@ a:hover {
   line-height: 1.7;
 }
 
-.hero__content > p {
+.hero__positioning {
   position: relative;
   z-index: 1;
   max-width: 760px;
-  font-size: clamp(1rem, 1.5vw, 1.14rem);
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(0.98rem, 1.35vw, 1.12rem);
+  line-height: 1.65;
 }
 
 .hero__actions,
@@ -285,14 +301,15 @@ a:hover {
   align-items: center;
   justify-content: center;
   min-height: 46px;
-  border-radius: 999px;
+  border-radius: 0;
   padding: 0 20px;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
 }
 
 .button--primary {
-  color: #061016;
+  color: #f2f4f7;
   border-color: transparent;
-  background: linear-gradient(135deg, var(--accent), var(--accent-warm));
+  background: linear-gradient(135deg, #293446, var(--wine));
   font-weight: 800;
 }
 
@@ -309,6 +326,22 @@ a:hover {
   gap: 8px 14px;
   max-width: 360px;
   font-size: 0.88rem;
+}
+
+.contact-group {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.contact-group--links {
+  justify-items: end;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.74rem;
+  font-weight: 800;
 }
 
 .eyebrow {
@@ -346,7 +379,7 @@ a:hover {
 
 .stat strong {
   display: block;
-  color: var(--accent-warm);
+  color: var(--accent-strong);
   font-size: 2.4rem;
   line-height: 1;
 }
@@ -385,11 +418,13 @@ a:hover {
   min-height: 260px;
   padding: clamp(24px, 4vw, 42px);
   border: 1px solid var(--border);
-  border-radius: 30px;
+  border-radius: 0;
   background:
-    linear-gradient(135deg, rgba(139, 233, 214, 0.12), transparent 32%),
+    linear-gradient(135deg, rgba(91, 31, 53, 0.18), transparent 34%),
+    linear-gradient(90deg, rgba(143, 163, 189, 0.07), transparent 24%),
     rgba(255, 255, 255, 0.035);
   box-shadow: var(--shadow);
+  clip-path: var(--panel-cut);
 }
 
 .artifact-card span {
@@ -460,10 +495,11 @@ a:hover {
 }
 
 .project-card .card__meta span {
-  border: 1px solid rgba(139, 233, 214, 0.2);
-  border-radius: 999px;
+  border: 1px solid rgba(143, 163, 189, 0.22);
+  border-radius: 0;
   padding: 4px 10px;
-  background: rgba(139, 233, 214, 0.06);
+  background: rgba(143, 163, 189, 0.07);
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
 }
 
 .card__impact {
@@ -474,7 +510,7 @@ a:hover {
 .card__impact-label {
   display: block;
   margin-bottom: 4px;
-  color: var(--accent-warm);
+  color: var(--accent-strong);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -505,11 +541,12 @@ a:hover {
 
 .tag {
   border: 1px solid rgba(159, 176, 201, 0.24);
-  border-radius: 999px;
+  border-radius: 0;
   padding: 6px 10px;
   color: var(--muted);
   background: rgba(255, 255, 255, 0.04);
   font-size: 0.82rem;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
 }
 
 .timeline {
@@ -555,12 +592,13 @@ a:hover {
   min-height: 150px;
   margin-bottom: 20px;
   place-items: center;
-  border: 1px dashed rgba(139, 233, 214, 0.3);
-  border-radius: 22px;
+  border: 1px dashed rgba(143, 163, 189, 0.3);
+  border-radius: 0;
   color: var(--muted);
   background:
-    linear-gradient(135deg, rgba(139, 233, 214, 0.08), rgba(255, 189, 111, 0.06)),
+    linear-gradient(135deg, rgba(143, 163, 189, 0.08), rgba(91, 31, 53, 0.08)),
     rgba(255, 255, 255, 0.03);
+  clip-path: var(--panel-cut);
 }
 
 .feature-video-card,
@@ -580,11 +618,12 @@ a:hover {
   gap: 22px;
   margin-bottom: 24px;
   padding: 16px;
-  border: 1px solid rgba(139, 233, 214, 0.16);
-  border-radius: 34px;
+  border: 1px solid rgba(143, 163, 189, 0.16);
+  border-radius: 0;
   background:
-    linear-gradient(90deg, rgba(139, 233, 214, 0.08), transparent 18%, transparent 82%, rgba(244, 213, 141, 0.08)),
+    linear-gradient(90deg, rgba(143, 163, 189, 0.08), transparent 18%, transparent 82%, rgba(91, 31, 53, 0.12)),
     rgba(0, 0, 0, 0.18);
+  clip-path: var(--panel-cut);
 }
 
 .feature-video-card--reverse {
@@ -602,10 +641,11 @@ a:hover {
 .video-embed {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(139, 233, 214, 0.22);
-  border-radius: 24px;
+  border: 1px solid rgba(143, 163, 189, 0.24);
+  border-radius: 0;
   background: rgba(255, 255, 255, 0.04);
   aspect-ratio: 16 / 9;
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
 }
 
 .video-embed::before,
@@ -646,14 +686,15 @@ a:hover {
   min-height: 520px;
   grid-column: 1 / -1;
   overflow: hidden;
-  border: 1px solid rgba(139, 233, 214, 0.2);
-  border-radius: 34px;
+  border: 1px solid rgba(143, 163, 189, 0.2);
+  border-radius: 0;
   background:
-    radial-gradient(circle at var(--orb-x) var(--orb-y), rgba(139, 233, 214, 0.2), transparent 22rem),
-    radial-gradient(circle at 50% 50%, rgba(244, 213, 141, 0.12), transparent 17rem),
+    radial-gradient(circle at var(--orb-x) var(--orb-y), rgba(143, 163, 189, 0.22), transparent 22rem),
+    radial-gradient(circle at 50% 50%, rgba(91, 31, 53, 0.18), transparent 17rem),
     rgba(255, 255, 255, 0.025);
   box-shadow: var(--shadow);
   perspective: 1200px;
+  clip-path: var(--panel-cut);
 }
 
 .signal-orb__hud {
@@ -691,15 +732,15 @@ a:hover {
   width: min(42vw, 440px);
   max-width: 70%;
   aspect-ratio: 1;
-  border: 1px solid rgba(139, 233, 214, 0.4);
+  border: 1px solid rgba(143, 163, 189, 0.42);
   border-radius: 50%;
   background:
     radial-gradient(circle at 38% 34%, rgba(255, 255, 255, 0.62), transparent 0.45rem),
     radial-gradient(circle at calc(var(--orb-x) * 0.8) calc(var(--orb-y) * 0.8), rgba(255, 255, 255, 0.26), transparent 9rem),
-    radial-gradient(circle at 48% 52%, rgba(139, 233, 214, 0.96), rgba(85, 214, 190, 0.18) 42%, rgba(2, 4, 7, 0.38) 68%),
-    repeating-radial-gradient(circle, rgba(139, 233, 214, 0.12) 0 1px, transparent 1px 7px);
+    radial-gradient(circle at 48% 52%, rgba(143, 163, 189, 0.9), rgba(58, 72, 92, 0.22) 42%, rgba(2, 3, 5, 0.48) 68%),
+    repeating-radial-gradient(circle, rgba(200, 210, 223, 0.1) 0 1px, transparent 1px 7px);
   box-shadow:
-    0 0 64px rgba(139, 233, 214, 0.22),
+    0 0 64px rgba(143, 163, 189, 0.2),
     0 22px 80px rgba(0, 0, 0, 0.62),
     inset -30px -34px 80px rgba(0, 0, 0, 0.55);
   transform:
@@ -729,10 +770,10 @@ a:hover {
 
 .signal-orb__planet::after {
   inset: -9%;
-  border: 1px solid rgba(139, 233, 214, 0.18);
+  border: 1px solid rgba(143, 163, 189, 0.18);
   box-shadow:
-    0 0 44px rgba(139, 233, 214, 0.18),
-    inset 0 0 32px rgba(139, 233, 214, 0.08);
+    0 0 44px rgba(143, 163, 189, 0.16),
+    inset 0 0 32px rgba(143, 163, 189, 0.08);
   transform: translateZ(-44px);
 }
 
@@ -747,14 +788,14 @@ a:hover {
 
 .signal-orb__core {
   background:
-    radial-gradient(circle at 50% 50%, rgba(244, 213, 141, 0.32), transparent 0.8rem),
-    radial-gradient(circle at 50% 50%, rgba(139, 233, 214, 0.16), transparent 42%);
+    radial-gradient(circle at 50% 50%, rgba(122, 45, 69, 0.34), transparent 0.8rem),
+    radial-gradient(circle at 50% 50%, rgba(143, 163, 189, 0.16), transparent 42%);
   transform: translateZ(58px) scale(0.64);
 }
 
 .signal-orb__latitude {
   border-top: 1px solid rgba(255, 255, 255, 0.24);
-  border-bottom: 1px solid rgba(139, 233, 214, 0.24);
+  border-bottom: 1px solid rgba(143, 163, 189, 0.24);
 }
 
 .signal-orb__latitude--one {
@@ -768,7 +809,7 @@ a:hover {
 
 .signal-orb__longitude {
   border-left: 1px solid rgba(255, 255, 255, 0.2);
-  border-right: 1px solid rgba(139, 233, 214, 0.2);
+  border-right: 1px solid rgba(143, 163, 189, 0.2);
 }
 
 .signal-orb__longitude--one {
@@ -834,14 +875,15 @@ a:hover {
 .signal-node {
   position: absolute;
   max-width: 210px;
-  border: 1px solid rgba(139, 233, 214, 0.24);
-  border-radius: 18px;
+  border: 1px solid rgba(143, 163, 189, 0.28);
+  border-radius: 0;
   padding: 14px 16px;
   color: var(--text);
   background: rgba(2, 4, 7, 0.66);
   cursor: pointer;
   text-align: left;
   backdrop-filter: blur(16px);
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
 }
 
 .signal-node span,
@@ -900,7 +942,7 @@ a:hover {
     align-items: center;
     flex-direction: row;
     margin: 0 0 20px;
-    border-radius: 0 0 24px 24px;
+    border-radius: 0;
   }
 
   .tabs {
@@ -922,6 +964,10 @@ a:hover {
   .contact-stack--inline {
     justify-content: flex-start;
     max-width: none;
+  }
+
+  .contact-group--links {
+    justify-items: start;
   }
 
   .grid--cards,
@@ -954,7 +1000,7 @@ a:hover {
   .mini-card,
   .area-card,
   .stat {
-    border-radius: 22px;
+    border-radius: 0;
     padding: 20px;
   }
 

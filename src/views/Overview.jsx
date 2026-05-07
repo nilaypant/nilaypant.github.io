@@ -10,36 +10,27 @@ export default function Overview({ onTabChange }) {
     <>
       <section className="hero">
         <div className="hero__masthead" aria-label="Portfolio summary">
-          <span className="eyebrow">Portfolio No. 001 / Signal Lab</span>
-          <p>{profile.resumeSummary}</p>
-          <div className="contact-stack contact-stack--inline">
+          <div className="contact-group">
             <a href={`mailto:${profile.email}`}>{profile.email}</a>
+            <a href={`tel:${profile.phone}`}>{profile.phone}</a>
+            <span>{profile.location}</span>
+          </div>
+          <p>{profile.resumeSummary}</p>
+          <div className="contact-group contact-group--links">
             <a href={profile.linkedInUrl} target="_blank" rel="noreferrer">
-              linkedin.com/in/nilay-pant
+              LinkedIn
             </a>
             <a href={profile.githubUrl} target="_blank" rel="noreferrer">
-              github.com/nilaypant
+              GitHub
             </a>
-            <span>{profile.location}</span>
           </div>
         </div>
         <SignalOrb onTabChange={onTabChange} />
         <div className="hero__content hero__content--byline">
-          <h1>
-            Just a guy in the age of AI,<br />
-            building tools, chasing signals<br />
-            and when the future asks why,<br />
-            I say, "I try..."
+          <h1 className="hero__quote">
+            "Just a guy in the age of AI, building tools, chasing signals, and when the future asks why, I say, I try..."
           </h1>
-          <p>{profile.positioning}&nbsp;by {profile.name}</p>
-          <div className="hero__actions">
-            <a className="button button--primary" href={`mailto:${profile.email}`}>
-              Contact me
-            </a>
-            <a className="button" href={profile.linkedInUrl} target="_blank" rel="noreferrer">
-              LinkedIn
-            </a>
-          </div>
+          <p className="hero__positioning">{profile.positioning}&nbsp;by {profile.name}</p>
         </div>
       </section>
 
