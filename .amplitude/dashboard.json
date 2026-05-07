@@ -1,0 +1,21 @@
+{
+  "dashboardUrl": "https://app.amplitude.com/analytics/nilaypant01/dashboard/okt0nwga",
+  "dashboardId": "okt0nwga",
+  "charts": [
+    {
+      "id": "yz631a7p",
+      "title": "Daily Unique Visitors",
+      "type": "line"
+    },
+    {
+      "id": "4t5czqbx",
+      "title": "New vs Returning Visitors",
+      "type": "line"
+    },
+    {
+      "id": "0hsmnd5i",
+      "title": "Visitor Return Retention",
+      "type": "retention"
+    }
+  ]
+}

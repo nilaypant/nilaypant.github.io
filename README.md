@@ -103,3 +103,39 @@ git status --short --branch
 ```
 
 If the local build passes, push to `main` to trigger the GitHub Pages workflow.
+
+## Analytics Wizard Artifacts (Cross-Device Cursor Handoff)
+
+This repo now includes Amplitude wizard artifacts so another Cursor session on a
+different device can continue analytics work with context.
+
+Tracked artifacts and purpose:
+
+- `ampli.json`: project binding metadata (Org, Project, region/zone).
+- `amplitude-setup-report.md`: setup summary, event list, dashboard links, and integration notes.
+- `.amplitude/project-binding.json`: same binding metadata in wizard-native location.
+- `.amplitude/events.json`: canonical list of instrumented custom event names/descriptions.
+- `.amplitude/dashboard.json`: starter dashboard/chart IDs and URLs from setup.
+- `.claude/skills/`: wizard-generated skills/references for instrumentation planning workflows.
+
+How to use on another machine:
+
+1. Clone the repo and open it in Cursor.
+2. Run `npm install`.
+3. Add local env for dev tracking:
+   - create `.env.local`
+   - set `VITE_AMPLITUDE_API_KEY=<your ingest key>`
+4. Ensure GitHub Actions secrets remain configured in the repo:
+   - `AMPLITUDE_INGEST_API_KEY`
+   - `AMPLITUDE_DASHBOARD_API_KEY`
+   - `AMPLITUDE_DASHBOARD_SECRET_KEY`
+   - `AMPLITUDE_PROJECT_ID`
+   - `AMPLITUDE_REGION`
+   - `AMPLITUDE_LOOKBACK_DAYS` (optional)
+5. Start dev with `npm run dev`.
+
+Security notes:
+
+- `.claude/settings.local.json` is intentionally **not committed** and is gitignored.
+- Never commit auth/session tokens, local credentials, or `.env.local`.
+- If any token is accidentally exposed, rotate it immediately in the provider.

@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Tab Navigated",
+    "description": "Fires when a visitor switches to a different portfolio section tab."
+  },
+  {
+    "name": "Portfolio Area Entered",
+    "description": "Fires when a visitor clicks an area card to navigate to Work, Study, or Play."
+  },
+  {
+    "name": "External Link Clicked",
+    "description": "Fires when a visitor opens an external link such as LinkedIn, GitHub, or a project link."
+  },
+  {
+    "name": "Film Watched On You Tube",
+    "description": "Fires when a visitor clicks the Watch on YouTube button for a film."
+  },
+  {
+    "name": "Contact Email Clicked",
+    "description": "Fires when a visitor clicks the email address to initiate contact."
+  },
+  {
+    "name": "Signal Orb Node Clicked",
+    "description": "Fires when a visitor clicks a navigation node on the Signal Orb in the hero."
+  },
+  {
+    "name": "Project Link Clicked",
+    "description": "Fires when a visitor clicks an external link on a project card."
+  },
+  {
+    "name": "Featured Film CTA Clicked",
+    "description": "Fires when a visitor clicks 'See it in Play' or 'Watch on YouTube' on the featured film card."
+  },
+  {
+    "name": "Skill Group Viewed",
+    "description": "Fires when a visitor scrolls the skill map section into view."
+  },
+  {
+    "name": "Contact Initiated",
+    "description": "Fires when a visitor clicks the phone number link to contact via phone."
+  }
+]

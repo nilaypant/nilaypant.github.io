@@ -4,13 +4,6 @@ dist/
 npm-debug.log*
 
 # Amplitude wizard
-.amplitude/dashboard.json
-.amplitude-events.json
-.amplitude-dashboard.json
 amplitude-setup-report.previous.md
-.claude/skills/integration-*/
-.claude/skills/add-analytics-instrumentation/
-.claude/skills/amplitude-chart-dashboard-plan/
-.claude/skills/amplitude-quickstart-taxonomy-agent/
-.claude/skills/wizard-prompt-supplement/
+.claude/settings.local.json
 .env.local
