@@ -9,17 +9,26 @@ export default function ProjectCard({ project }) {
       </div>
       <h3>{project.title}</h3>
       <p>{project.description}</p>
-      {project.impact ? <p className="card__impact">{project.impact}</p> : null}
-      <TagList tags={project.tags} />
-      {project.links?.length ? (
-        <div className="link-row">
-          {project.links.map((link) => (
-            <a href={link.href} key={link.href} target="_blank" rel="noreferrer">
-              {link.label}
-            </a>
-          ))}
-        </div>
+      {project.impact ? (
+        <p className="card__impact">
+          <span className="card__impact-label">Outcome</span>
+          {project.impact}
+        </p>
       ) : null}
+      <TagList tags={project.tags} />
+      <div className="project-card__footer">
+        {project.links?.length ? (
+          <div className="link-row">
+            {project.links.map((link) => (
+              <a href={link.href} key={link.href} target="_blank" rel="noreferrer">
+                {link.label}
+              </a>
+            ))}
+          </div>
+        ) : (
+          <p className="project-card__note">Additional artifacts and demos coming soon.</p>
+        )}
+      </div>
     </article>
   );
 }

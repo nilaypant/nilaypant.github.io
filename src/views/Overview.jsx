@@ -59,6 +59,10 @@ export default function Overview({ onTabChange }) {
       </section>
 
       <Section eyebrow="Featured" title="Selected Projects">
+        <p className="section__lede">
+          A cross-section of research, production analytics, and applied ML work. Each project is picked for
+          practical impact and technical depth.
+        </p>
         <div className="grid grid--cards">
           {featuredProjects.map((project) => (
             <ProjectCard project={project} key={project.title} />
