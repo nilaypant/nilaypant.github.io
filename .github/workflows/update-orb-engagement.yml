@@ -10,7 +10,6 @@ permissions:
 
 jobs:
   refresh:
-    if: ${{ secrets.AMPLITUDE_DASHBOARD_API_KEY != '' && secrets.AMPLITUDE_DASHBOARD_SECRET_KEY != '' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -24,6 +23,16 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Validate required secrets
+        env:
+          AMPLITUDE_DASHBOARD_API_KEY: ${{ secrets.AMPLITUDE_DASHBOARD_API_KEY }}
+          AMPLITUDE_DASHBOARD_SECRET_KEY: ${{ secrets.AMPLITUDE_DASHBOARD_SECRET_KEY }}
+        run: |
+          if [ -z "$AMPLITUDE_DASHBOARD_API_KEY" ] || [ -z "$AMPLITUDE_DASHBOARD_SECRET_KEY" ]; then
+            echo "Missing required Amplitude secrets: AMPLITUDE_DASHBOARD_API_KEY and/or AMPLITUDE_DASHBOARD_SECRET_KEY"
+            exit 1
+          fi
 
       - name: Build orb engagement snapshot
         env:
