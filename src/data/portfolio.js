@@ -56,7 +56,7 @@ export const skills = [
           ],
   },
   {
-    group: 'Engineering',
+    group: 'Programming',
     items: ['Python',
             'PySpark',
             'Django',
