@@ -9,8 +9,22 @@ export default function Overview({ onTabChange }) {
   return (
     <>
       <section className="hero">
-        <div className="hero__content">
+        <div className="hero__masthead" aria-label="Portfolio summary">
           <span className="eyebrow">Portfolio No. 001 / Signal Lab</span>
+          <p>{profile.resumeSummary}</p>
+          <div className="contact-stack contact-stack--inline">
+            <a href={`mailto:${profile.email}`}>{profile.email}</a>
+            <a href={profile.linkedInUrl} target="_blank" rel="noreferrer">
+              linkedin.com/in/nilay-pant
+            </a>
+            <a href={profile.githubUrl} target="_blank" rel="noreferrer">
+              github.com/nilaypant
+            </a>
+            <span>{profile.location}</span>
+          </div>
+        </div>
+        <SignalOrb onTabChange={onTabChange} />
+        <div className="hero__content hero__content--byline">
           <h1>
             Just a guy in the age of AI,<br />
             building tools, chasing signals<br />
@@ -27,21 +41,6 @@ export default function Overview({ onTabChange }) {
             </a>
           </div>
         </div>
-        <aside className="hero__panel" aria-label="Profile summary">
-          <span className="eyebrow">Intercepted transmission</span>
-          <p>{profile.resumeSummary}</p>
-          <div className="contact-stack">
-            <a href={`mailto:${profile.email}`}>{profile.email}</a>
-            <a href={profile.linkedInUrl} target="_blank" rel="noreferrer">
-              linkedin.com/in/nilay-pant
-            </a>
-            <a href={profile.githubUrl} target="_blank" rel="noreferrer">
-              github.com/nilaypant
-            </a>
-            <span>{profile.location}</span>
-          </div>
-        </aside>
-        <SignalOrb onTabChange={onTabChange} />
       </section>
 
       <section className="stat-grid" aria-label="Selected impact metrics">
