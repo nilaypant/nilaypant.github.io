@@ -58,10 +58,10 @@ jobs:
       - name: Trigger deploy workflow
         if: steps.commit_snapshot.outputs.changed == 'true'
         env:
-          WORKFLOW_TRIGGER_PAT: ${{ secrets.WORKFLOW_TRIGGER_PAT }}
+          WORKFLOW_TRIGGER_PAT: ${{ secrets.ORB_WORKFLOW_TRIGGER_PAT }}
         run: |
           if [ -z "$WORKFLOW_TRIGGER_PAT" ]; then
-            echo "Missing WORKFLOW_TRIGGER_PAT"
+            echo "Missing ORB_WORKFLOW_TRIGGER_PAT"
             exit 1
           fi
           curl -sS -X POST \
