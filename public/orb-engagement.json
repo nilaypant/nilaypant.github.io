@@ -1,6 +1,6 @@
 {
   "window_days": 30,
-  "updated_at": "2026-07-01T04:53:25.543Z",
+  "updated_at": "2026-07-01T10:12:59.244Z",
   "amplitude_project_id": "813517",
   "region": "US",
   "definition": "Unique interactions on Signal Orb nodes over the selected lookback window.",
